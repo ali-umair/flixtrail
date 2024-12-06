@@ -1,0 +1,88 @@
+# General compiled output
+**/dist/
+**/tmp/
+**/out-tsc/
+**/.bazel-out/
+
+# Node.js dependencies
+**/node_modules/
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# IDEs and editors
+**/.idea/
+**/.project
+**/.classpath
+**/.c9/
+*.launch
+**/.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+**/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/
+
+# Angular-specific files
+frontend/.angular/cache/
+frontend/.sass-cache/
+frontend/connect.lock
+frontend/coverage/
+frontend/libpeerconnection.log
+frontend/testem.log
+frontend/typings/
+
+# NestJS-specific files
+backend/.nestjs/
+backend/debug/
+backend/hot-reload/
+backend/coverage/
+backend/libpeerconnection.log
+backend/testem.log
+backend/typings/
+backend/logs/
+
+# Environment and configuration files
+**/.env
+**/.env.*.local
+**/local.env
+**/environment.ts
+**/environment.prod.ts
+
+# Build and output files
+**/dist/
+**/build/
+**/.next/
+**/.cache/
+
+# Logs and debugging
+**/logs/
+*.log
+*.tsbuildinfo
+backend/debug.log
+frontend/debug.log
+
+# Temporary files
+**/.temp/
+**/.tmp/
+**/tmp/
+
+# Docker files (if applicable)
+**/docker-compose*
+**/Dockerfile*
+
+# System files
+.DS_Store
+Thumbs.db
+*.swp
+*.lock
+*.bak
+
+# Optional npm package lock files (if not versioning)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
