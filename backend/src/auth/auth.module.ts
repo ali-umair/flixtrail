@@ -5,12 +5,13 @@ import { AuthController } from './auth.controller';
 import { JwtModule } from '@nestjs/jwt';
 import { GoogleAuthService } from './google-auth.service';
 import { JwtStrategy } from './jwt.strategy';
+import { JWT_SECRET_KEY } from '../../secrets.js';
 
 @Module({
     imports: [
         PassportModule,
         JwtModule.register({
-            secret: 'your-secret-jwt-key', // Set your secret key
+            secret: JWT_SECRET_KEY, // Set your secret key
             signOptions: { expiresIn: '1h' }, // Token validity
           }),
     ],
