@@ -52,6 +52,7 @@ backend/logs/
 **/local.env
 **/environment.ts
 **/environment.prod.ts
+**/secrets.js
 
 # Build and output files
 **/dist/
