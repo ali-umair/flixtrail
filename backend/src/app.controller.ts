@@ -1,6 +1,7 @@
-import { Controller, Delete, Get, HostParam, Param, Post, Put, UseGuards } from '@nestjs/common';
+import { Controller, Delete, Get, HostParam, Param, Post, Put, Res, UseGuards } from '@nestjs/common';
 import { AppService } from './app.service';
 import { JwtAuthGuard } from './auth/jwt-auth.guard';
+import { response } from 'express';
 
 @Controller({host: ':host'})
 export class AppController {
@@ -45,6 +46,7 @@ export class AppController {
   @Get('movies')
   @UseGuards(JwtAuthGuard)
   findAllMovies() {
-    return "This returns all movies - Protected route";
+    console.log("Processing request...")
+    return { message: "This returns all movies - Protected route" };;
   }
 }

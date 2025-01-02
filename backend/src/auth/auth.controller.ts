@@ -1,8 +1,10 @@
-import { Controller, Get, Req, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Post, Req, Res, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { GoogleAuthService } from './google-auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { Response } from 'express'; // Correct import
+import { OAuth2Client } from 'google-auth-library';
+import { GOOGLE_CLIENT_ID } from '../../secrets';
 
 @Controller('auth')
 export class AuthController {
@@ -38,5 +40,18 @@ export class AuthController {
         // Option 2: Redirect the user to the frontend with the JWT
         // const redirectUrl = `http://localhost:4200/auth/callback?token=${jwt}`;
         // return res.redirect(redirectUrl);
+    }
+
+    @Post('jwt')
+    async generateJWTToken(@Req() req: any, @Res() res: Response) {
+        const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+        const ticket = await client.verifyIdToken({
+            idToken: req.body.token,
+            audience: GOOGLE_CLIENT_ID,  // Specify the CLIENT_ID
+        });
+        const payload = ticket.getPayload();
+
+        const jwt = this.jwtService.sign({ userId: payload.sub });
+        return res.json({jwt: jwt});
     }
 }
