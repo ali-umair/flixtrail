@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { GOOGLE_CLIENT_SECRET, GOOGLE_CLIENT_ID, JWT_SECRET_KEY} from '../../environment';
+import { GOOGLE_CLIENT_ID } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 
@@ -23,9 +23,13 @@ export class LoginComponent implements OnInit{
         });
         google.accounts.id.renderButton(
             document.getElementById('google-signin-button'),
-            { theme: 'outline', size: 'large' } // Customize button style
+            { theme: 'filled_black', size: 'large', logo_alignment: 'center', type: 'icon'} // Customize button style
         );
         // google.accounts.id.prompt(); // Optional: Auto-prompt for login
+    }
+
+    onGoogleSignIn() {
+        google.accounts.id.prompt();
     }
 
     handleCredentialResponse(response: any) {
