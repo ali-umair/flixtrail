@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NavbarComponent } from "../nav/navbar.component";
 
 
 @Component({
     selector: 'app-dashboard',
     standalone: true,
     templateUrl: './dashboard.component.html',
+    imports: [NavbarComponent],
 })
 export class DashboardComponent implements OnInit {
     google: any;

@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit{
         // google.accounts.id.prompt(); // Optional: Auto-prompt for login
     }
 
-    onGoogleSignIn() {
-        google.accounts.id.prompt();
-    }
+    // onGoogleSignIn() {
+    //     google.accounts.id.prompt();
+    // }
 
     handleCredentialResponse(response: any) {
         const googleToken = response.credential;

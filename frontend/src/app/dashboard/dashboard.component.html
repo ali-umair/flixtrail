@@ -1,2 +1,126 @@
-<button (click)="this.logout()" style="display: block; float: right;" class="btn btn-primary m-5">Logout</button>
-<button (click)="this.fetchAllMovies()" class="btn btn-primary m-5">Fetch all moviese</button>
+<app-navbar></app-navbar>
+<!-- <button (click)="this.fetchAllMovies()" class="btn btn-primary m-5">Fetch all moviese</button> -->
+<div id="filter-dropdowns" class="m-5 flex flex-wrap gap-3">
+    <select class="select select-bordered max-w-xs">
+        <option disabled selected>Category</option>
+        <option>Movies</option>
+        <option>TV Shows</option>
+    </select>
+    <select class="select select-bordered max-w-xs">
+        <option disabled selected>Your lists</option>
+        <option>Watching</option>
+        <option>Watchlist</option>
+        <option>Favorite</option>
+        <option>Pending</option>
+        <option>On hold</option>
+    </select>
+    <div class="form-control max-w-xs">
+        <input type="text" placeholder="Search" class="input input-bordered md:w-auto" />
+    </div>
+</div>
+<div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 p-5">
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7oYgmr5tiM23TAWaYlQy7z5vDfd9NCtpkZPug" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7ESHcmnMmMxrqsg8cvVNILQzPKwpeu5Ob1dnG" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7oYgmr5tiM23TAWaYlQy7z5vDfd9NCtpkZPug" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7ESHcmnMmMxrqsg8cvVNILQzPKwpeu5Ob1dnG" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7oYgmr5tiM23TAWaYlQy7z5vDfd9NCtpkZPug" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7oYgmr5tiM23TAWaYlQy7z5vDfd9NCtpkZPug" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7oYgmr5tiM23TAWaYlQy7z5vDfd9NCtpkZPug" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="card bg-base-300 shadow-xl w-48 h-72">
+            <figure>
+                <img src="https://utfs.io/f/hECyBK2Lu5f7oYgmr5tiM23TAWaYlQy7z5vDfd9NCtpkZPug" alt="Shoes"
+                    class="absolute inset-0 h-full w-full object-cover z-0 rounded " />
+                <!-- Black overlay -->
+                <div class="absolute inset-0 bg-black/30 z-5"></div>
+            </figure>
+            <div class="card-body relative z-10 m-[-10%]">
+                <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>
+            </div>
+        </div>
+    </div>
+</div>

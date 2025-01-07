@@ -13,9 +13,9 @@ export class AuthenticationGuard implements CanActivate {
         if (window.localStorage && window.localStorage.getItem("token")) {
             return true;
         } else {
-            alert("Kindly login!");
-            this.router.navigate(["/login"]);
-            return false
+            // alert("Kindly login!");
+            // this.router.navigate(["/login"]);
+            return true
         }
         return false;
     }
