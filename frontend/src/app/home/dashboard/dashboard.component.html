@@ -1,0 +1,96 @@
+<div id="wrapper" class="lg:mx-14">
+    <div id="filter-dropdowns" class="m-5 flex flex-wrap gap-3">
+        <select class="select select-bordered max-w-xs">
+            <option disabled selected>Category</option>
+            <option>Movies</option>
+            <option>TV Shows</option>
+        </select>
+        <select class="select select-bordered max-w-xs">
+            <option disabled selected>Your lists</option>
+            <option>Watching</option>
+            <option>Watchlist</option>
+            <option>Favorite</option>
+            <option>Pending</option>
+            <option>On hold</option>
+        </select>
+        <div class="form-control max-w-xs">
+            <input type="text" placeholder="Search" class="input input-bordered md:w-auto"
+                (blur)="searchMovies($event.target)" />
+        </div>
+    </div>
+
+    <div class="relative" *ngIf="searchResult.length">
+        <!-- Scroll Left Button -->
+        <button class="absolute left-7 top-1/2 bg-neutral rounded-full p-2 shadow-md z-20" (click)="scrollLeft()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 p-5" #carousel>
+            <div class="carousel-item" *ngFor="let result of searchResult">
+                <app-card [imageURL]="result.poster_path" />
+            </div>
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="absolute right-3 top-1/2 bg-neutral rounded-full p-2 shadow-md z-20" (click)="scrollRight()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <div class="relative">
+        <!-- Scroll Left Button -->
+        <button class="absolute left-7 top-1/2 bg-neutral rounded-full p-2 shadow-md z-20" (click)="scrollLeft()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 p-5" #carousel>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/x7NPbBlrvFRJrpinBSRlMOOUWom.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/rzsmKSFEsEWBLbJ968abffnfYZ7.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/cenBMd8pVeAw2V5rkI7r92DCznr.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/imKSymKBK7o73sajciEmndJoVkR.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/imKSymKBK7o73sajciEmndJoVkR.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/imKSymKBK7o73sajciEmndJoVkR.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/imKSymKBK7o73sajciEmndJoVkR.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/imKSymKBK7o73sajciEmndJoVkR.jpg'" />
+            </div>
+            <div class="carousel-item">
+                <app-card [imageURL]="'/imKSymKBK7o73sajciEmndJoVkR.jpg'" />
+            </div>
+    
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="absolute right-3 top-1/2 bg-neutral rounded-full p-2 shadow-md z-20" (click)="scrollRight()">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+                class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>

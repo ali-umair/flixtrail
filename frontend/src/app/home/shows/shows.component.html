@@ -1,0 +1,70 @@
+<div id="wrapper" class="lg:px-16 lg:mt-28">
+    <h1 class="text-2xl font-bold">Popular this week</h1>
+    <div class="relative">
+        <!-- Scroll Left Button -->
+        <button class="absolute left-7 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20" (click)="scrollLeft(carouselPouplar)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselPouplar>
+            <div class="carousel-item" *ngFor="let show of popularShows">
+                <app-card [imageURL]="show.poster_path" [details]="show"/>
+            </div>
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20" (click)="scrollRight(carouselPouplar)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <h1 class="text-2xl font-bold">On the Air</h1>
+    <div class="relative">
+        <!-- Scroll Left Button -->
+        <button class="absolute left-7 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20" (click)="scrollLeft(carouselOnAir)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselOnAir>
+            <div class="carousel-item" *ngFor="let show of onTheAirShows">
+                <app-card [imageURL]="show.poster_path" />
+            </div>
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20" (click)="scrollRight(carouselOnAir)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <h1 class="text-2xl font-bold">Top Rated</h1>
+    <div class="relative">
+        <!-- Scroll Left Button -->
+        <button class="absolute left-7 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20" (click)="scrollLeft(carouselTopRated)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselTopRated>
+            <div class="carousel-item" *ngFor="let show of topRatedShows">
+                <app-card [imageURL]="show.poster_path" />
+            </div>
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20" (click)="scrollRight(carouselTopRated)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+</div>

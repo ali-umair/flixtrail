@@ -1,22 +1,60 @@
-<div class="navbar bg-ghost text-ghost-content mb-7">
+<!-- <div class="navbar bg-ghost text-ghost-content mb-7 px-16">
     <div class="navbar-start">
         <a class="btn btn-ghost text-2xl">Daisy UI</a>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal px-1 text-xl font-semibold">
-            <li><a>Dashboard</a></li>
-            <li><a>Movies</a></li>
-            <li><a>TV Shows</a></li>
+            <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+            <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
+            <li><a routerLink="/tv" routerLinkActive="active">TV Shows</a></li>
         </ul>
     </div>
     <div class="navbar-end">
-        <a class="btn">
+        <a class="btn" routerLink="/login" (click)="logout()">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M9.35294 16.2V18.3C9.35294 18.8569 9.57605 19.3911 9.97319 19.7849C10.3703 20.1787 10.909 20.4 11.4706 20.4L18.8824 20.4C19.444 20.4 19.9826 20.1787 20.3798 19.7849C20.7769 19.3911 21 18.8569 21 18.3L21 5.69998C21 5.14302 20.7769 4.60888 20.3798 4.21505C19.9826 3.82123 19.444 3.59998 18.8824 3.59998L11.4706 3.59998C10.909 3.59998 10.3703 3.82123 9.97319 4.21505C9.57605 4.60888 9.35294 5.14302 9.35294 5.69998V7.79998M15.7059 12L3 12M3 12L6.17647 15.15M3 12L6.17647 8.84998"
                     stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
             Logout
+        </a>
+    </div>
+</div> -->
+
+
+<div class="navbar bg-black text-ghost-content px-16 fixed top-0 left-0 w-full z-50">
+    <div class="navbar-start">
+        <a routerLink="/dashboard">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 217" fill="currentColor" class="h-8 w-auto">
+                <path
+                    d="M97.155 2.113C48.303 5.567 9.275 44.595 5.821 93.447c-.27 3.812 2.74 7.058 6.561 7.058h85.255a6.577 6.577 0 0 0 6.578-6.577V8.674c0-3.821-3.246-6.829-7.058-6.56Zm121.702 91.912c-3.454-48.852-42.482-87.88-91.334-91.334-3.812-.27-7.058 2.74-7.058 6.561v85.255a6.577 6.577 0 0 0 6.577 6.578h85.254c3.821 0 6.829-3.246 6.56-7.058Zm-9.322 20.788c-48.852 3.454-87.88 42.482-91.334 91.334-.27 3.812 2.74 7.058 6.561 7.058h85.255a6.577 6.577 0 0 0 6.578-6.577v-85.254c0-3.821-3.246-6.829-7.058-6.56ZM5.823 123.555c3.454 48.852 42.482 87.88 91.334 91.334 3.812.27 7.058-2.74 7.058-6.561v-85.255a6.577 6.577 0 0 0-6.577-6.578H12.384c-3.821 0-6.829 3.246-6.56 7.058ZM251.63 181.86h-8.52v-56.42h26.49v7.44h-17.97v15.97h13.97v7.52h-13.97zm52.28 0h-24.87v-56.42h8.67v48.74h16.2zm17.88 0h-8.59v-56.42h8.59zm17.66 0h-9.9l17.27-29.4-16.28-27.02h10.37l10.67 19.73 10.97-19.73h10.14l-16.35 26.86 17.96 29.56h-10.21l-12.44-22.34zm60.87 0h-8.52v-48.9h-14.43v-7.52h37.53v7.52h-14.58zm31.23 0h-8.37v-56.42H436q4.3 0 8.33.84 4.03.85 7.18 2.84 3.15 2 4.99 5.3 1.84 3.3 1.84 8.14 0 5.6-2.61 9.74-2.61 4.15-7.9 6.38l13.43 23.18h-9.9L440 160.52q-1.31.07-3.19.11-1.88.04-3.11.04h-2.15zm0-49.28v21.11H437q4.22 0 6.8-1.08 2.57-1.07 3.95-2.72 1.38-1.65 1.88-3.61t.5-3.65q0-3.76-1.73-5.95-1.73-2.18-4.76-3.14t-6.95-.96zm31.25 49.28 27.02-56.5h.85l27.17 56.5h-9.9l-4.84-11.06h-25.87l-4.83 11.06zm27.56-40.15h-.15l-3.38 7.68-6.14 13.66h19.04l-6.07-13.59zm41.84 40.15h-8.6v-56.42h8.6zm37.84 0h-24.87v-56.42h8.67v48.74h16.2z">
+                </path>
+            </svg>
+        </a>
+
+    </div>
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 text-xl font-semibold">
+            <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+            <li><a routerLink="/movies" routerLinkActive="active">Movies</a></li>
+            <li><a routerLink="/tv" routerLinkActive="active">TV Shows</a></li>
+        </ul>
+    </div>
+    <div class="navbar-end">
+        <a class="btn btn-ghost" routerLink="/search">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M19.6 21L13.3 14.7C12.8 15.1 12.225 15.4167 11.575 15.65C10.925 15.8833 10.2333 16 9.5 16C7.68333 16 6.14583 15.3708 4.8875 14.1125C3.62917 12.8542 3 11.3167 3 9.5C3 7.68333 3.62917 6.14583 4.8875 4.8875C6.14583 3.62917 7.68333 3 9.5 3C11.3167 3 12.8542 3.62917 14.1125 4.8875C15.3708 6.14583 16 7.68333 16 9.5C16 10.2333 15.8833 10.925 15.65 11.575C15.4167 12.225 15.1 12.8 14.7 13.3L21 19.6L19.6 21ZM9.5 14C10.75 14 11.8125 13.5625 12.6875 12.6875C13.5625 11.8125 14 10.75 14 9.5C14 8.25 13.5625 7.1875 12.6875 6.3125C11.8125 5.4375 10.75 5 9.5 5C8.25 5 7.1875 5.4375 6.3125 6.3125C5.4375 7.1875 5 8.25 5 9.5C5 10.75 5.4375 11.8125 6.3125 12.6875C7.1875 13.5625 8.25 14 9.5 14Z"
+                    fill="currentcolor" />
+            </svg>
+
+        </a>
+        <a class="btn btn-ghost" routerLink="/login" (click)="logout()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M9.35294 16.2V18.3C9.35294 18.8569 9.57605 19.3911 9.97319 19.7849C10.3703 20.1787 10.909 20.4 11.4706 20.4L18.8824 20.4C19.444 20.4 19.9826 20.1787 20.3798 19.7849C20.7769 19.3911 21 18.8569 21 18.3L21 5.69998C21 5.14302 20.7769 4.60888 20.3798 4.21505C19.9826 3.82123 19.444 3.59998 18.8824 3.59998L11.4706 3.59998C10.909 3.59998 10.3703 3.82123 9.97319 4.21505C9.57605 4.60888 9.35294 5.14302 9.35294 5.69998V7.79998M15.7059 12L3 12M3 12L6.17647 15.15M3 12L6.17647 8.84998"
+                    stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
         </a>
     </div>
 </div>

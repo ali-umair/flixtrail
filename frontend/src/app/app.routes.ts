@@ -1,18 +1,20 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './auth-screens/login.component';
-import { AuthComponent } from './auth/auth.componen';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './home/dashboard/dashboard.component';
 import { AuthenticationGuard } from './guard/authentication.guard';
 import { SignupComponent } from './auth-screens/signup.component';
+import { MoviesComponent } from './home/movies/movies.component';
+import { ShowsComponent } from './home/shows/shows.component';
+import { DetailComponent } from './ui/detail/detail.component';
 
 export const routes: Routes = [
     {
         path: '',
-        component: DashboardComponent,
-        canActivate: [AuthenticationGuard]
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
     },
     {
-        path: 'signup',
+        path: 'register',
         component: SignupComponent,
     },
     {
@@ -22,6 +24,21 @@ export const routes: Routes = [
     {
         path: 'dashboard',
         component: DashboardComponent,
+        canActivate: [AuthenticationGuard]
+    },
+    {
+        path: 'movies',
+        component: MoviesComponent,
+        canActivate: [AuthenticationGuard]
+    },
+    {
+        path: 'tv',
+        component: ShowsComponent,
+        canActivate: [AuthenticationGuard]
+    },
+    {
+        path: 'detail',
+        component: DetailComponent,
         canActivate: [AuthenticationGuard]
     }
 ];

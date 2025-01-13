@@ -1,0 +1,92 @@
+<!-- <p>{{details.name}}</p>
+<p>{{details.overview}}</p>
+<figure>
+    <img [src]="baseImgURL + details.poster_path" alt="" class="" />
+</figure> -->
+
+<!-- <div class="h-screen flex flex-col">
+    <div class="h-full relative">
+        <img [src]="baseImgURL + details.backdrop_path" alt="Background"
+            class="absolute inset-0 w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-black/70 z-5"></div>
+    </div>
+</div> -->
+
+
+<div class="relative h-screen">
+    <!-- Background Image with Gradient Overlay -->
+    <div class="absolute inset-0">
+        <img [src]="baseImgURL + details.backdrop_path" alt="Background" class="w-full h-full object-cover" />
+        <div class="absolute inset-0"></div>
+    </div>
+
+    <!-- Scrollable Content -->
+    <div class="relative z-10 overflow-y-auto max-h-screen lg:px-16 bg-gradient-to-b from-black/30 via-black/70 to-black">
+        <!-- Top Content overlapping the image -->
+        <div class="min-h-screen text-white flex items-end">
+            <div class="flex items-center gap-7">
+                <app-card [imageURL]="details.poster_path" [size]="'sm'" />
+                <div>
+                    <img *ngIf="titleLogo; else fallbackTitle" [src]="baseLogoURL + titleLogo.file_path"
+                        alt="Series Logo" class="max-w-96 max-h-40 object-contain mb-5" />
+                    <ng-template #fallbackTitle>
+                        <div class="text-5xl font-bold mb-5">
+                            {{ details.name }}
+                        </div>
+                    </ng-template>
+                    <div id="score" class="flex items-center gap-3 mb-5">
+                        <div class="radial-progress text-sm text-neutral-content" [style.--value]="userScore"
+                            [style.--size]="'3rem'" [style.--thickness]="'3px'" role="progressbar">
+                            {{userScore}}%
+                        </div>
+                        <p class="font-bold text-lg">User Score</p>
+                    </div>
+                    <div class="badge badge-accent mr-3 mb-5" *ngFor=" let id of details.genre_ids">
+                        {{id}}
+                    </div>
+                    <p class="text-lg mb-5 font-light">
+                        {{details.overview}}
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Content -->
+        <div class="bg-gray-900 text-white p-8">
+            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
+            <p>
+                More content goes here. This part scrolls naturally while keeping the background fixed.
+            </p>
+        </div>
+        <div class="bg-gray-900 text-white p-8">
+            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
+            <p>
+                More content goes here. This part scrolls naturally while keeping the background fixed.
+            </p>
+        </div>
+        <div class="bg-gray-900 text-white p-8">
+            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
+            <p>
+                More content goes here. This part scrolls naturally while keeping the background fixed.
+            </p>
+        </div>
+        <div class="bg-gray-900 text-white p-8">
+            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
+            <p>
+                More content goes here. This part scrolls naturally while keeping the background fixed.
+            </p>
+        </div>
+        <div class="bg-gray-900 text-white p-8">
+            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
+            <p>
+                More content goes here. This part scrolls naturally while keeping the background fixed.
+            </p>
+        </div>
+        <div class="bg-gray-900 text-white p-8">
+            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
+            <p>
+                More content goes here. This part scrolls naturally while keeping the background fixed.
+            </p>
+        </div>
+    </div>
+</div>
