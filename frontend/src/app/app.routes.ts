@@ -6,6 +6,7 @@ import { SignupComponent } from './auth-screens/signup.component';
 import { MoviesComponent } from './home/movies/movies.component';
 import { ShowsComponent } from './home/shows/shows.component';
 import { DetailComponent } from './ui/detail/detail.component';
+import { SearchComponent } from './home/search/search.component';
 
 export const routes: Routes = [
     {
@@ -39,6 +40,11 @@ export const routes: Routes = [
     {
         path: 'detail',
         component: DetailComponent,
+        canActivate: [AuthenticationGuard]
+    },
+    {
+        path: 'search',
+        component: SearchComponent,
         canActivate: [AuthenticationGuard]
     }
 ];

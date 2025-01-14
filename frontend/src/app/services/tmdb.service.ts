@@ -50,6 +50,14 @@ export class TmdbService {
     return this.get('search/movie', { query, page: page.toString() });
   }
 
+  searchShows(query: string, page: number = 1): Observable<any> {
+    return this.get('search/tv', { query, page: page.toString() });
+  }
+  
+  searchMulti(query: string, page: number = 1): Observable<any> {
+    return this.get('search/multi', { query, page: page.toString() });
+  }
+
   getAllImgesByShowId(id: string, page: number = 1): Observable<any> {
     return this.get(`tv/${id}/images`);
   }

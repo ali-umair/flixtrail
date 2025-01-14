@@ -1,0 +1,38 @@
+<div id="wrapper" class="lg:px-16 lg:mt-28 flex flex-col justify-center items-center gap-10">
+    <div class="join w-2/3">
+        <input #searchInput class="input input-bordered join-item w-full" placeholder="Search for a movie, series..."
+            (keydown.enter)="search(searchInput.value)" />
+        <button class="btn join-item w-40" (click)="search(searchInput.value)">Search</button>
+    </div>
+    <p *ngIf="!searchResults.length" class="text-3xl w-2/3 px-36 text-center font-light">
+        Find your favorite movies and series easily. Type in the title or keyword and discover detailed information.
+        Explore our catalog and find it in seconds!
+    </p>
+    <h2 *ngIf="searchResults.length" class="text-3xl w-2/3 px-36 text-center font-bold lg:mt-16">
+        Results for "{{query}}"
+    </h2>
+</div>
+
+<div class="relative lg:mx-16 lg:mt-10" *ngIf="searchResults.length">
+    <!-- Scroll Left Button -->
+    <button class="absolute left-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
+        (click)="scrollLeft(carousel)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+    <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carousel>
+        <div class="carousel-item" *ngFor="let result of searchResults">
+            <app-card [imageURL]="result.poster_path" [details]="result" />
+        </div>
+    </div>
+    <!-- Scroll Right Button -->
+    <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
+        (click)="scrollRight(carousel)">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"
+            class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+</div>
