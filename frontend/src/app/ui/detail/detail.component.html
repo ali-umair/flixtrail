@@ -21,11 +21,12 @@
     </div>
 
     <!-- Scrollable Content -->
-    <div class="relative z-10 overflow-y-auto max-h-screen lg:px-16 bg-gradient-to-bl from-black/40 via-black/80 to-black">
+    <div
+        class="relative z-10 overflow-y-auto max-h-screen lg:px-16 bg-gradient-to-bl from-black/40 via-black/80 to-black">
         <!-- Top Content overlapping the image -->
         <div class="min-h-screen text-white flex items-end">
-            <div class="flex items-center gap-7">
-                <app-card [imageURL]="details.poster_path" [size]="'sm'" />
+            <div class="flex items-center gap-7 pb-7">
+                <app-card [imageURL]="details.poster_path" [size]="'lg'" />
                 <div>
                     <img *ngIf="titleLogo; else fallbackTitle" [src]="baseLogoURL + titleLogo.file_path"
                         alt="Series Logo" class="max-w-96 max-h-40 object-contain mb-5" />
@@ -42,9 +43,39 @@
                         </div>
                         <p class="font-bold text-lg">User Score</p>
                     </div>
-                    <div class="badge badge-accent mr-3 mb-5" *ngFor=" let id of details.genre_ids">
-                        {{id}}
+                    <div class="flex mb-5 gap-10">
+                        <button class="tooltip" data-tip="Mark as favorite">
+                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M17.8785 29.4808C17.3968 29.6508 16.6035 29.6508 16.1218 29.4808C12.0135 28.0783 2.8335 22.2275 2.8335 12.3108C2.8335 7.93333 6.361 4.39167 10.7102 4.39167C13.2885 4.39167 15.5693 5.63833 17.0002 7.565C18.431 5.63833 20.726 4.39167 23.2902 4.39167C27.6393 4.39167 31.1668 7.93333 31.1668 12.3108C31.1668 22.2275 21.9868 28.0783 17.8785 29.4808Z"
+                                    stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="tooltip" data-tip="Add to your watchlist">
+                            <svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M24 13.485V30.525C24 32.7 22.44 33.615 20.535 32.565L14.64 29.28C14.01 28.935 12.99 28.935 12.36 29.28L6.465 32.565C4.56 33.615 3 32.7 3 30.525V13.485C3 10.92 5.09998 8.82001 7.66498 8.82001H19.335M24 13.485C24 10.92 21.9 8.82001 19.335 8.82001M24 13.485V23.655L29.535 26.745C31.44 27.795 33 26.88 33 24.705V7.66498C33 5.09998 30.9 3 28.335 3H16.665C14.1 3 12 5.09998 12 7.66498V8.82001H19.335M10.5 18H16.5M13.5 21V15"
+                                    stroke="currentcolor" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <button class="tooltip" data-tip="Add to list">
+                            <svg width="34" height="34" viewBox="0 0 34 34" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12.3534 8.5H30.6001M12.3534 17.68H30.6001M12.3534 26.86H30.6001M5.1001 8.5V8.51813M5.1001 17.68V17.6981M5.1001 26.86V26.8781"
+                                    stroke="currentcolor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
                     </div>
+                    <div class="badge badge-accent mr-3 mb-5 p-3" *ngFor=" let genre of genreNames">
+                        {{genre}}
+                    </div>
+                    <p class="font-bold text-lg">Overview</p>
                     <p class="text-lg mb-5 font-light">
                         {{details.overview}}
                     </p>
@@ -53,41 +84,73 @@
         </div>
 
         <!-- Additional Content -->
-        <div class="text-white py-8">
-            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
-            <p>
-                More content goes here. This part scrolls naturally while keeping the background fixed.
-            </p>
-        </div>
-        <div class="text-white py-8">
-            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
-            <p>
-                More content goes here. This part scrolls naturally while keeping the background fixed.
-            </p>
-        </div>
-        <div class="text-white py-8">
-            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
-            <p>
-                More content goes here. This part scrolls naturally while keeping the background fixed.
-            </p>
-        </div>
-        <div class="text-white py-8">
-            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
-            <p>
-                More content goes here. This part scrolls naturally while keeping the background fixed.
-            </p>
-        </div>
-        <div class="text-white py-8">
-            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
-            <p>
-                More content goes here. This part scrolls naturally while keeping the background fixed.
-            </p>
-        </div>
-        <div class="text-white py-8">
-            <h2 class="text-3xl font-semibold mb-4">More Details</h2>
-            <p>
-                More content goes here. This part scrolls naturally while keeping the background fixed.
-            </p>
+        <div class="text-white py-5">
+            <div id="tv-seasons" *ngIf="completeDetails.seasons; else movieDetails">
+                <h2 class="text-3xl font-bold mb-7">Seasons <span
+                        class="text-neutral-content">({{completeDetails.seasons.length}})</span></h2>
+                <div id="seasons" class="flex">
+                    <div class="flex flex-col w-1/3 gap-10 overflow-y-scroll h-screen pr-5">
+                        <div id="season-card"
+                            class="flex items-center gap-5 rounded-lg hover:cursor-pointer duration-300" [ngClass]="{
+                            'bg-neutral-content/10 text-neutral-content': seasonNumber == season.season_number,
+                            'hover:bg-neutral-content/10 hover:text-neutral-content': seasonNumber != season.season_number
+                          }" *ngFor="let season of completeDetails.seasons" (click)="selectSeason($event)"
+                            [attr.data-season-number]="season.season_number">
+                            <app-card [imageURL]="season.poster_path" [size]="'sm'" />
+                            <div id="season-title" class="">
+                                <p class="text-2xl font-bold mb-2">{{season.name}}</p>
+                                <div id="season-detail" class="flex gap-3 mb-5">
+                                    <div id="season-rating" class="flex gap-1 items-center">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_6176_1166)">
+                                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                                    d="M7.00015 0.276855C6.80172 0.276855 6.60743 0.333623 6.44022 0.440458C6.27514 0.545928 6.14325 0.695846 6.05967 0.872901L4.47211 4.07799C4.46899 4.08429 4.466 4.09065 4.46315 4.09708L4.45991 4.10109L4.45511 4.10296C4.44902 4.10363 4.44294 4.10442 4.43688 4.10532L0.941302 4.62318C0.748098 4.64197 0.563858 4.71447 0.409543 4.83267C0.249871 4.95498 0.129089 5.12096 0.0618284 5.31051C-0.00543176 5.50006 -0.0162849 5.70505 0.0305842 5.90065C0.0772718 6.09548 0.179241 6.27267 0.324207 6.41092L2.88298 8.87974L2.88881 8.88527C2.89246 8.88869 2.89521 8.89296 2.89679 8.89771C2.89837 8.90245 2.89874 8.90752 2.89786 8.91244L2.28756 12.4841C2.25406 12.6775 2.27527 12.8773 2.34908 13.0591C2.42299 13.2413 2.54655 13.399 2.70568 13.5144C2.86482 13.6297 3.05314 13.6981 3.24922 13.7117C3.44491 13.7253 3.64049 13.6838 3.81379 13.592L3.81484 13.5914L6.96432 11.9269C6.97561 11.922 6.98782 11.9194 7.00017 11.9194C7.01252 11.9194 7.02472 11.922 7.03602 11.9269L10.1855 13.5914C10.3589 13.6835 10.5553 13.7254 10.7511 13.7117C10.9472 13.6981 11.1355 13.6297 11.2947 13.5144C11.4538 13.399 11.5774 13.2413 11.6513 13.0591C11.7251 12.8773 11.7464 12.6785 11.713 12.4852L11.7128 12.4841L11.1031 8.9157L11.1025 8.91244C11.1016 8.90752 11.102 8.90245 11.1036 8.89771C11.1051 8.89297 11.1079 8.88869 11.1115 8.88527L11.1174 8.87974L13.6762 6.41089C13.8211 6.27264 13.9231 6.09547 13.9698 5.90065C14.0166 5.70505 14.0058 5.50006 13.9385 5.31051C13.8713 5.12096 13.7505 4.95498 13.5908 4.83267C13.4365 4.71447 13.2523 4.64197 13.0591 4.62318L9.56343 4.10532C9.55737 4.10442 9.55129 4.10363 9.5452 4.10296L9.54039 4.10109L9.53716 4.09708C9.53431 4.09065 9.53132 4.08429 9.5282 4.07799L7.94063 0.872887C7.85705 0.695838 7.72516 0.545925 7.56009 0.440458C7.39287 0.333623 7.19858 0.276855 7.00015 0.276855Z"
+                                                    fill="#FDCC0D" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_6176_1166">
+                                                    <rect width="14" height="14" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                        <p class="font-bold">{{season.vote_average}}</p>
+                                    </div>
+                                    <p class="font-medium border-l pl-3" *ngIf="season.air_date">
+                                        {{season.air_date.split("-")[0]}}</p>
+                                </div>
+                                <p class="text-lg mb-3">{{season.episode_count}} Episodes</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="episodes" class="w-2/3 sticky top-0 overflow-y-scroll h-screen">
+                        <div *ngIf="selectedSeason" class="flex flex-wrap gap-5 p-7">
+                            <div class="card bg-base-300 shadow-xl w-72 h-44 rounded-xl tooltip hover:cursor-pointer"
+                                *ngFor="let episode of selectedSeason.episodes" data-tip="Mark as watched">
+                                <figure *ngIf="episode.still_path">
+                                    <img [src]="baseStillURL + episode.still_path" alt="Shoes"
+                                        class="absolute inset-0 h-full w-full object-cover z-0 rounded-xl" />
+                                    <!-- Black overlay -->
+                                    <div
+                                        class="absolute inset-0 bg-black/10 z-10 rounded-xl hover:bg-black/50 duration-300">
+                                    </div>
+                                </figure>
+                                <div class="card-body relative z-8 m-[-10%] rounded-xl">
+                                    <div class="badge bg-black text-white border-none p-4 m-3 font-semibold text-lg">
+                                        S{{seasonNumber}}-E{{episode.episode_number}}</div>
+                                </div>
+                                <div class="card-body absolute bottom-3 right-3 z-8 m-[-15%] rounded-xl">
+                                    <div class="badge bg-black text-white border-none p-4 m-3 font-medium text-md">
+                                        {{episode.name}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ng-template #movieDetails>
+                <h2 class="text-3xl font-bold mb-7">Movies Details</h2>
+            </ng-template>
         </div>
     </div>
 </div>

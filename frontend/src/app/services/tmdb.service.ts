@@ -65,4 +65,16 @@ export class TmdbService {
   getAllImgesByMovieId(id: string, page: number = 1): Observable<any> {
     return this.get(`movie/${id}/images`);
   }
+
+  getShowDetails(id: string, page: number = 1): Observable<any> {
+    return this.get(`tv/${id}`);
+  }
+
+  getSeasonDetails(seriesId: string, seasonNumber: number, page: number = 1): Observable<any> {
+    return this.get(`tv/${seriesId}/season/${seasonNumber}`);
+  }
+
+  getMovieDetails(id: string, page: number = 1): Observable<any> {
+    return this.get(`movie/${id}`);
+  }
 }

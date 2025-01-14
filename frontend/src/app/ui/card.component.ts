@@ -1,3 +1,4 @@
+import { NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,7 +7,7 @@ import { Router } from '@angular/router';
     selector: 'app-card',
     standalone: true,
     templateUrl: './card.component.html',
-    imports: [],
+    imports: [NgIf],
 })
 export class CardComponent implements OnInit {
 
