@@ -1,0 +1,8 @@
+<div class="relative cursor-pointer" (click)="openYouTube(video.key)">
+    <!-- Thumbnail Image -->
+    <img [src]="getThumbnailUrl(video.key)" [alt]="video.name" class="w-full h-full object-cover rounded-xl" />
+    <!-- Overlay and YouTube Logo -->
+    <div class="absolute inset-0 bg-black/40 flex items-center justify-center rounded-xl">
+        <img src="/yt_icon_rgb.png" alt="YouTube Logo" class="w-14 h-10" />
+    </div>
+</div>

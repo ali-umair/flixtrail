@@ -41,7 +41,7 @@
         </button>
         <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselPouplar>
             <div class="carousel-item" *ngFor="let movie of popularMovies">
-                <app-card [imageURL]="movie.poster_path" [details]="movie"/>
+                <app-card [imageURL]="movie.poster_path" [details]="movie" [mediaType]="'movie'"/>
             </div>
         </div>
         <!-- Scroll Right Button -->
@@ -64,7 +64,7 @@
         </button>
         <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselNowPlaying>
             <div class="carousel-item" *ngFor="let movie of nowPlayingMovies">
-                <app-card [imageURL]="movie.poster_path" [details]="movie"/>
+                <app-card [imageURL]="movie.poster_path" [details]="movie" [mediaType]="'movie'"/>
             </div>
         </div>
         <!-- Scroll Right Button -->
@@ -87,7 +87,7 @@
         </button>
         <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselTopRated>
             <div class="carousel-item" *ngFor="let movie of topRatedMovies">
-                <app-card [imageURL]="movie.poster_path" [details]="movie"/>
+                <app-card [imageURL]="movie.poster_path" [details]="movie" [mediaType]="'movie'"/>
             </div>
         </div>
         <!-- Scroll Right Button -->

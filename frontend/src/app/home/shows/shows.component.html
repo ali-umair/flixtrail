@@ -10,7 +10,7 @@
         </button>
         <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselPouplar>
             <div class="carousel-item" *ngFor="let show of popularShows">
-                <app-card [imageURL]="show.poster_path" [details]="show"/>
+                <app-card [imageURL]="show.poster_path" [details]="show" [mediaType]="'tv'"/>
             </div>
         </div>
         <!-- Scroll Right Button -->
@@ -33,7 +33,7 @@
         </button>
         <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselOnAir>
             <div class="carousel-item" *ngFor="let show of onTheAirShows">
-                <app-card [imageURL]="show.poster_path" [details]="show"/>
+                <app-card [imageURL]="show.poster_path" [details]="show" [mediaType]="'tv'"/>
             </div>
         </div>
         <!-- Scroll Right Button -->
@@ -56,7 +56,7 @@
         </button>
         <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16" #carouselTopRated>
             <div class="carousel-item" *ngFor="let show of topRatedShows">
-                <app-card [imageURL]="show.poster_path" [details]="show"/>
+                <app-card [imageURL]="show.poster_path" [details]="show" [mediaType]="'tv'"/>
             </div>
         </div>
         <!-- Scroll Right Button -->

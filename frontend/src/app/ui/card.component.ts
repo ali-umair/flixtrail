@@ -15,6 +15,7 @@ export class CardComponent implements OnInit {
     @Input() badgeText: string = "";
     @Input() details: {} = {};
     @Input() size: string = "lg";
+    @Input() mediaType: string = "";
 
     baseImgURL: string = "https://image.tmdb.org/t/p/w500";
 
@@ -24,6 +25,6 @@ export class CardComponent implements OnInit {
 
     showDetails() {
         console.log(this.details);
-        this.router.navigate(['/detail'], { state: { data: this.details } });
+        this.router.navigate(['/detail'], { state: { data: this.details, mediaType: this.mediaType } });
     }
 }

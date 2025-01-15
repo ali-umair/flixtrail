@@ -77,4 +77,8 @@ export class TmdbService {
   getMovieDetails(id: string, page: number = 1): Observable<any> {
     return this.get(`movie/${id}`);
   }
+
+  getMovieVideos(id: string, page: number = 1): Observable<any> {
+    return this.get(`movie/${id}/videos`);
+  }
 }
