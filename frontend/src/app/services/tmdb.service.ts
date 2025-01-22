@@ -81,4 +81,12 @@ export class TmdbService {
   getMovieVideos(id: string, page: number = 1): Observable<any> {
     return this.get(`movie/${id}/videos`);
   }
+
+  getShowWatch(id: string, page: number = 1): Observable<any> {
+    return this.get(`tv/${id}/watch/providers`);
+  }
+
+  getMovieWatch(id: string, page: number = 1): Observable<any> {
+    return this.get(`movie/${id}/watch/providers`);
+  }
 }
