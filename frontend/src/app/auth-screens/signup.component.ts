@@ -3,16 +3,23 @@ import { AuthService } from '../auth/auth.service';
 import { GOOGLE_CLIENT_ID } from '../../../environment';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
+import { NgIf } from '@angular/common';
 
 declare const google: any;
 
 @Component({
     selector: 'app-signup',
     standalone: true,
+    imports: [FormsModule, NgIf],
     templateUrl: './signup.component.html',
 })
 export class SignupComponent implements OnInit {
     google: any;
+    userName: string = "";
+    email: string = "";
+    password: string = "";
+    confirmPassword: string = "";
 
     constructor(private authService: AuthService, private http: HttpClient, private router: Router) { }
 
@@ -43,6 +50,13 @@ export class SignupComponent implements OnInit {
             console.log(response);
             localStorage.setItem('token', response.jwt);
             this.router.navigate(["dashboard"]);
+        });
+    }
+
+    register(form: NgForm) {
+        console.log(form.value);
+        this.http.post('http://localhost:3000/auth/register', { payload: form.value }).subscribe((response: any) => {
+            console.log(response);
         });
     }
 }
