@@ -5,10 +5,11 @@ import { JwtService } from '@nestjs/jwt';
 import { Response } from 'express'; // Correct import
 import { OAuth2Client } from 'google-auth-library';
 import { GOOGLE_CLIENT_ID } from '../../secrets';
+import { UserAuthService } from '../auth/user-auth.service'
 
 @Controller('auth')
 export class AuthController {
-    constructor(private readonly googleAuthService: GoogleAuthService, private jwtService: JwtService) { }
+    constructor(private readonly googleAuthService: GoogleAuthService, private jwtService: JwtService, private userAuthService: UserAuthService) { }
     @Get('google')
     @UseGuards(AuthGuard('google'))
     async googleAuth(@Req() req) {
@@ -53,5 +54,20 @@ export class AuthController {
 
         const jwt = this.jwtService.sign({ userId: payload.sub });
         return res.json({jwt: jwt});
+    }
+
+    @Post('register')
+    async registerUser(@Req() req: any, @Res() res: Response) {
+        // const client = new OAuth2Client(GOOGLE_CLIENT_ID);
+        // const ticket = await client.verifyIdToken({
+        //     idToken: req.body.token,
+        //     audience: GOOGLE_CLIENT_ID,  // Specify the CLIENT_ID
+        // });
+        // const payload = ticket.getPayload();
+
+        const newUser = await this.userAuthService.registerUser(req.body.payload);
+
+        // const jwt = this.jwtService.sign({ userId: payload.sub });
+        return res.json(newUser);
     }
 }

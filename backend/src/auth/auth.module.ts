@@ -6,6 +6,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { GoogleAuthService } from './google-auth.service';
 import { JwtStrategy } from './jwt.strategy';
 import { JWT_SECRET_KEY } from '../../secrets.js';
+import { UserAuthService } from './user-auth.service';
 
 @Module({
     imports: [
@@ -15,7 +16,7 @@ import { JWT_SECRET_KEY } from '../../secrets.js';
             signOptions: { expiresIn: '1h' }, // Token validity
           }),
     ],
-    providers: [GoogleStrategy, GoogleAuthService, JwtStrategy],
+    providers: [GoogleStrategy, GoogleAuthService, JwtStrategy, UserAuthService],
     controllers: [AuthController],
 })
 export class AuthModule {}
