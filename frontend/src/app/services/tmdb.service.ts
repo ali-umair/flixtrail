@@ -53,7 +53,7 @@ export class TmdbService {
   searchShows(query: string, page: number = 1): Observable<any> {
     return this.get('search/tv', { query, page: page.toString() });
   }
-  
+
   searchMulti(query: string, page: number = 1): Observable<any> {
     return this.get('search/multi', { query, page: page.toString() });
   }
@@ -88,5 +88,13 @@ export class TmdbService {
 
   getMovieWatch(id: string, page: number = 1): Observable<any> {
     return this.get(`movie/${id}/watch/providers`);
+  }
+
+  getPopularMoviesByProvider(id: string, page: number = 1): Observable<any> {
+    return this.get(`discover/movie?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&watch_region=US&with_watch_providers=${id}&sort_by=popularity.desc`);
+  }
+
+  getPopularShowsByProvider(id: string, page: number = 1): Observable<any> {
+    return this.get(`discover/tv?include_adult=false&include_null_first_air_dates=false&language=en-US&page=1&watch_region=US&with_watch_providers=${id}&sort_by=popularity.desc`);
   }
 }
