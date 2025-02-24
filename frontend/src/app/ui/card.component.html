@@ -1,4 +1,5 @@
-<div *ngIf="size == 'lg'" class="card bg-base-300 shadow-xl w-64 h-96 hover:scale-105 hover:cursor-pointer duration-300 ">
+<div *ngIf="size == 'lg'"
+    class="card bg-base-300 shadow-xl w-64 h-96 hover:scale-105 hover:cursor-pointer duration-300 ">
     <figure (click)="showDetails()">
         <img [src]="baseImgURL + imageURL" alt="Shoes"
             class="absolute inset-0 h-full w-full object-cover z-0 rounded-xl" />
@@ -6,15 +7,30 @@
         <!-- <div class="absolute inset-0 bg-black/30 z-5"></div> -->
     </figure>
     <!-- <div class="card-body relative z-10 m-[-10%]"> -->
-        <!-- <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>  -->
+    <!-- <div class="badge badge-ghost p-3 font-semibold">0/39 Episodes</div>  -->
     <!-- </div> -->
 </div>
 
-<div  *ngIf="size == 'sm'" class="card bg-base-300 shadow-xl w-44 h-72 hover:scale-105 hover:cursor-pointer duration-300 ">
+<div *ngIf="size == 'sm'"
+    class="card bg-base-300 shadow-xl w-44 h-72 hover:scale-105 hover:cursor-pointer duration-300 ">
     <figure (click)="showDetails()">
         <img [src]="baseImgURL + imageURL" alt="Shoes"
             class="absolute inset-0 h-full w-full object-cover z-0 rounded-xl" />
         <!-- Black overlay -->
         <!-- <div class="absolute inset-0 bg-black/30 z-5"></div> -->
     </figure>
+</div>
+
+<div *ngIf="size == 'gs'"
+    class="card bg-base-300 flex flex-col items-center shadow-xl w-64 h-96 hover:cursor-pointer duration-300 ">
+    <figure>
+        <img [src]="baseImgURL + imageURL" alt="Shoes"
+            class="absolute inset-0 h-full w-full object-cover z-1 rounded-xl transition-all duration-300 shadow-lg"
+            [ngClass]="{'grayscale hover:grayscale-0': selectedSeason.season_number !== seasonNumber,'!grayscale-0': selectedSeason.season_number === seasonNumber}" />
+    </figure>
+    <div class="absolute bottom-2 z-10 badge bg-black text-white p-3 text-xs font-bold flex gap-3">
+        <span class="">Season {{ seasonNumber }}</span>
+        <div class="h-1 w-1 bg-white rounded-full"></div>
+        <span class="">{{ totalEpisodes }} episodes</span>
+    </div>
 </div>

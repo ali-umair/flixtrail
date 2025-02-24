@@ -1,4 +1,4 @@
-import { NgIf } from '@angular/common';
+import { NgClass, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
     selector: 'app-card',
     standalone: true,
     templateUrl: './card.component.html',
-    imports: [NgIf],
+    imports: [NgIf, NgClass],
 })
 export class CardComponent implements OnInit {
 
@@ -16,6 +16,9 @@ export class CardComponent implements OnInit {
     @Input() details: {} = {};
     @Input() size: string = "lg";
     @Input() mediaType: string = "";
+    @Input() seasonNumber: number = 0;
+    @Input() totalEpisodes: number = 0;
+    @Input() selectedSeason: any = {};
 
     baseImgURL: string = "https://image.tmdb.org/t/p/w500";
 
