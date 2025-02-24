@@ -1,18 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./nav/navbar.component";
 import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, NavbarComponent, NgIf],
+  imports: [RouterOutlet, NavbarComponent, NgIf, RouterLink, RouterLinkActive],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'flixtrail';
   showNavbar = true;
+  authenticated: boolean = false;
 
   constructor(private http: HttpClient, private router: Router) {
     this.router.events.subscribe((event) => {
