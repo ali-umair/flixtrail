@@ -75,52 +75,6 @@
             </svg>
         </button>
     </div> -->
-
-    <h1>
-        <svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <!-- Define the glow effect -->
-                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                    <feMerge>
-                        <feMergeNode in="coloredBlur" />
-                        <feMergeNode in="SourceGraphic" />
-                    </feMerge>
-                </filter>
-            </defs>
-
-            <!-- Text with glow effect -->
-            <text x="10" y="70" font-size="50" font-family="Arial, sans-serif" font-weight="bold" stroke="currentcolor"
-                stroke-width="2" fill="transparent" filter="url(#glow)">
-                TOP RATED
-            </text>
-        </svg>
-    </h1>
-    <div class="relative">
-        <!-- Scroll Left Button -->
-        <button class="absolute left-7 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
-            (click)="scrollLeft(carouselTopRated)">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-        </button>
-        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16"
-            #carouselTopRated>
-            <div class="carousel-item" *ngFor="let movie of topRatedMovies">
-                <app-card [imageURL]="movie.poster_path" [details]="movie" [mediaType]="'movie'" />
-            </div>
-        </div>
-        <!-- Scroll Right Button -->
-        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
-            (click)="scrollRight(carouselTopRated)">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
-                stroke="currentColor" class="w-6 h-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-        </button>
-    </div>
-
     <h1>
         <svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -170,6 +124,51 @@
         <!-- Scroll Right Button -->
         <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
             (click)="scrollRight(carouselPopular)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <h1>
+        <svg width="400" height="100" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <!-- Define the glow effect -->
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Text with glow effect -->
+            <text x="10" y="70" font-size="50" font-family="Arial, sans-serif" font-weight="bold" stroke="currentcolor"
+                stroke-width="2" fill="transparent" filter="url(#glow)">
+                TOP RATED
+            </text>
+        </svg>
+    </h1>
+    <div class="relative">
+        <!-- Scroll Left Button -->
+        <button class="absolute left-7 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
+            (click)="scrollLeft(carouselTopRated)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="carousel carousel-center bg-ghost rounded-box max-w-full space-x-4 py-3 h-fit mb-16"
+            #carouselTopRated>
+            <div class="carousel-item" *ngFor="let movie of topRatedMovies">
+                <app-card [imageURL]="movie.poster_path" [details]="movie" [mediaType]="'movie'" />
+            </div>
+        </div>
+        <!-- Scroll Right Button -->
+        <button class="absolute right-3 top-1/2 -translate-y-1/2 bg-black rounded-full p-2 shadow-md z-20"
+            (click)="scrollRight(carouselTopRated)">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                 stroke="currentColor" class="w-6 h-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

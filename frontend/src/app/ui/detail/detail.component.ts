@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { VideoCardComponent } from "../video-card/video-card.component";
 import { FormsModule } from '@angular/forms';
 import { Countries } from '../../../../countries'
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-detail',
@@ -37,6 +38,7 @@ export class DetailComponent implements OnInit {
   selectedType: string = 'trailers';
   countriesName: { code: string; name: any; }[] = [];
   watchProviders: any = [];
+  backdropImgUrl: string = "";
   // watchCountry: string = "US";
 
   constructor(private tmdbService: TmdbService, public sanitizer: DomSanitizer) { }
@@ -47,6 +49,7 @@ export class DetailComponent implements OnInit {
     this.userScore = Math.ceil(this.details.vote_average * 10);
     this.genreIds = this.details.genre_ids;
     this.mediaType == "tv" ? this.genreNames = this.mapGenreIdsToNames(this.genreIds, GENRES_TV) : this.genreNames = this.mapGenreIdsToNames(this.genreIds, GENRES_MOVIES);
+    this.backdropImgUrl = this.baseImgURL + this.details.backdrop_path;
     if (this.mediaType == "tv") {
       this.tmdbService.getShowDetails(this.details.id).subscribe((response) => {
         this.completeDetails = response;
@@ -111,6 +114,8 @@ export class DetailComponent implements OnInit {
     this.seasonNumber = parseInt(seasonNumber);
     this.tmdbService.getSeasonDetails(this.details.id, this.seasonNumber).subscribe((response) => {
       this.selectedSeason = response;
+      const lastEpisode = response.episodes[response.episodes.length - 1];
+      this.backdropImgUrl = this.baseImgURL + lastEpisode.still_path;
     });
     // this.seasonNumber = event;
   }

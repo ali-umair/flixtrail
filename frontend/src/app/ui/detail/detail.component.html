@@ -16,7 +16,7 @@
 <div class="relative h-screen">
     <!-- Background Image with Gradient Overlay -->
     <div class="absolute inset-0">
-        <img [src]="baseImgURL + details.backdrop_path" alt="Background" class="w-full h-full object-cover" />
+        <img [src]="backdropImgUrl" alt="Background" class="w-full h-full object-cover" />
         <div class="absolute inset-0"></div>
     </div>
 
@@ -149,7 +149,7 @@
                     </div>
                     <div id="episodes" class="w-4/5 sticky top-0 overflow-y-scroll h-screen">
                         <div *ngIf="selectedSeason" class="flex flex-wrap gap-5 pl-10">
-                            <div class="card bg-base-300 shadow-xl w-72 h-44 rounded-xl tooltip hover:cursor-pointer"
+                            <div class="card bg-base-300 shadow-xl w-64 h-40 rounded-xl tooltip hover:cursor-pointer"
                                 *ngFor="let episode of selectedSeason.episodes" data-tip="Mark as watched">
                                 <figure *ngIf="episode.still_path">
                                     <img [src]="baseStillURL + episode.still_path" alt="Shoes"
@@ -160,11 +160,11 @@
                                     </div>
                                 </figure>
                                 <div class="card-body relative z-8 m-[-10%] rounded-xl">
-                                    <div class="badge bg-black text-white border-none p-4 m-3 font-semibold text-lg">
+                                    <div class="badge border-none p-3 m-3 font-semibold text-sm">
                                         S{{seasonNumber}}-E{{episode.episode_number}}</div>
                                 </div>
                                 <div class="card-body absolute bottom-3 right-3 z-8 m-[-15%] rounded-xl">
-                                    <div class="badge bg-black text-white border-none p-4 m-3 font-medium text-md">
+                                    <div class="badge border-none p-3 m-3 font-medium text-sm">
                                         {{episode.name}}</div>
                                 </div>
                             </div>

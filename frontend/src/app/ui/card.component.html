@@ -22,15 +22,15 @@
 </div>
 
 <div *ngIf="size == 'gs'"
-    class="card bg-base-300 flex flex-col items-center shadow-xl w-64 h-96 hover:cursor-pointer duration-300 ">
+    class="card bg-base-300 flex flex-col items-center shadow-xl w-44 h-72 hover:cursor-pointer duration-300 ">
     <figure>
         <img [src]="baseImgURL + imageURL" alt="Shoes"
             class="absolute inset-0 h-full w-full object-cover z-1 rounded-xl transition-all duration-300 shadow-lg"
             [ngClass]="{'grayscale hover:grayscale-0': selectedSeason.season_number !== seasonNumber,'!grayscale-0': selectedSeason.season_number === seasonNumber}" />
     </figure>
-    <div class="absolute bottom-2 z-10 badge bg-black text-white p-3 text-xs font-bold flex gap-3">
+    <div class="absolute bottom-2 z-10 badge p-3 text-xs font-bold flex gap-3">
         <span class="">Season {{ seasonNumber }}</span>
-        <div class="h-1 w-1 bg-white rounded-full"></div>
+        <div class="h-1 w-1 bg-neutral-content rounded-full"></div>
         <span class="">{{ totalEpisodes }} episodes</span>
     </div>
 </div>
