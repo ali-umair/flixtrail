@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardComponent } from "../card.component";
 import { TmdbService } from '../../services/tmdb.service';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { GENRES_TV, GENRES_MOVIES } from '../../../../genres'
 import { DomSanitizer } from '@angular/platform-browser';
 import { VideoCardComponent } from "../video-card/video-card.component";
@@ -11,7 +11,7 @@ import { last } from 'rxjs';
 
 @Component({
   selector: 'app-detail',
-  imports: [CardComponent, NgIf, NgFor, NgClass, VideoCardComponent, FormsModule],
+  imports: [CardComponent, NgIf, NgFor, VideoCardComponent, FormsModule],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.css'
 })
